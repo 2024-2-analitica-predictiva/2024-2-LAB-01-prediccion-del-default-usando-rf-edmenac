@@ -9,10 +9,6 @@ import pandas as pd  # type: ignore
 
 # ------------------------------------------------------------------------------
 MODEL_FILENAME = "files/models/model.pkl"
-# MODEL_FILENAME = "../files/models/model.pkl"
-# MODEL_FILENAME = "../files/models/grid_search.pkl"
-# MODEL_FILENAME = r"C:/Users/edmc9/Documents/GitHub/Especializacion_Analitica/Analitica_predictiva/2024-2-LAB-01-prediccion-del-default-usando-rf-edmenac/files/models/model.pkl"
-# MODEL_FILENAME = r"C:/Users/edmc9/Documents/GitHub/Especializacion_Analitica/Analitica_predictiva/2024-2-LAB-01-prediccion-del-default-usando-rf-edmenac/files/models/grid_search.pkl"
 MODEL_COMPONENTS = [
     "OneHotEncoder",
     "RandomForestClassifier",
@@ -78,35 +74,15 @@ def _test_components(model):
 def _load_grading_data():
     """Load grading data"""
     with open("files/grading/x_train.pkl", "rb") as file:
-        # with open("../files/grading/x_train.pkl", "rb") as file:
-        # with open(
-        #     r"C:/Users/edmc9/Documents/GitHub/Especializacion_Analitica/Analitica_predictiva/2024-2-LAB-01-prediccion-del-default-usando-rf-edmenac/files/grading/x_train.pkl",
-        #     "rb",
-        # ) as file:
         x_train = pickle.load(file)
 
     with open("files/grading/y_train.pkl", "rb") as file:
-        # with open("../files/grading/y_train.pkl", "rb") as file:
-        # with open(
-        #     r"C:/Users/edmc9/Documents/GitHub/Especializacion_Analitica/Analitica_predictiva/2024-2-LAB-01-prediccion-del-default-usando-rf-edmenac/files/grading/y_train.pkl",
-        #     "rb",
-        # ) as file:
         y_train = pickle.load(file)
 
     with open("files/grading/x_test.pkl", "rb") as file:
-        # with open("../files/grading/x_test.pkl", "rb") as file:
-        # with open(
-        #     r"C:/Users/edmc9/Documents/GitHub/Especializacion_Analitica/Analitica_predictiva/2024-2-LAB-01-prediccion-del-default-usando-rf-edmenac/files/grading/x_test.pkl",
-        #     "rb",
-        # ) as file:
         x_test = pickle.load(file)
 
     with open("files/grading/y_test.pkl", "rb") as file:
-        # with open("../files/grading/y_test.pkl", "rb") as file:
-        # with open(
-        #     r"C:/Users/edmc9/Documents/GitHub/Especializacion_Analitica/Analitica_predictiva/2024-2-LAB-01-prediccion-del-default-usando-rf-edmenac/files/grading/y_test.pkl",
-        #     "rb",
-        # ) as file:
         y_test = pickle.load(file)
 
     return x_train, y_train, x_test, y_test
@@ -119,7 +95,6 @@ def _test_scores(model, x_train, y_train, x_test, y_test):
 
 
 def _load_metrics():
-    # assert os.path.exists("../files/output/metrics.json")
     assert os.path.exists("files/output/metrics.json")
     # metrics = []
     with open("files/output/metrics.json", "r", encoding="utf-8") as file:
@@ -128,23 +103,6 @@ def _load_metrics():
         # for line in file:
         #     metrics.append(json.loads(line))
     return metrics
-
-
-# def _load_metrics():
-#     # assert os.path.exists("../files/output/metrics.json")
-#     assert os.path.exists(
-#         r"C:/Users/edmc9/Documents/GitHub/Especializacion_Analitica/Analitica_predictiva/2024-2-LAB-01-prediccion-del-default-usando-rf-edmenac/files/output/metrics.json"
-#     )
-
-#     # with open("../files/output/metrics.json", "r", encoding="utf-8") as file:
-#     with open(
-#         r"C:/Users/edmc9/Documents/GitHub/Especializacion_Analitica/Analitica_predictiva/2024-2-LAB-01-prediccion-del-default-usando-rf-edmenac/files/output/metrics.json",
-#         "r",
-#         encoding="utf-8",
-#     ) as file:
-#         metrics = json.load(file)
-
-#     return metrics
 
 
 def _test_metrics(metrics):
